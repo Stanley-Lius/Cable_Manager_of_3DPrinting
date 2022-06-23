@@ -24,14 +24,12 @@ module Hole_Donut(h1,r1,thickness,hole_size=0){
             cube(size = hole_size);
         translate([-(r1+(hole_size/2)),-(hole_size/2),(h1-hole_size)/2])
             cube(size = hole_size);
-        
         }
 }
 
 difference(){
-    Hole_Donut(50,100,40,30);
+    Hole_Donut(30,50,35,20);
     translate([0,0,5])
-        Hole_Donut(50,95,30);
+        Hole_Donut(30,40,20);
     
 }
-
