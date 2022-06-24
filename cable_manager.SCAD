@@ -27,9 +27,77 @@ module Hole_Donut(h1,r1,thickness,hole_size=0){
         }
 }
 
-difference(){
+/*difference(){
     Hole_Donut(30,50,35,20);
     translate([0,0,5])
         Hole_Donut(30,40,20);
+
+}*/
+union(){
+    linear_extrude(250)
+        difference(){
+            circle(20);
+            offset(r = -5)
+                circle(20);
+        }
+    translate([0,16,30])
+        side_hook();
+    translate([0,-16,30])
+        side_hook(-1);
+    translate([0,16,60])
+        side_hook(1);
+    translate([0,-16,60])
+        side_hook(-1);
+    translate([0,16,90])
+        side_hook(1);
+    translate([0,-16,90])
+        side_hook(-1);
+    translate([0,16,120])
+        side_hook(1);
+    translate([0,-16,120])
+        side_hook(-1);
+    translate([0,16,150])
+        side_hook(1);
+    translate([0,-16,150])
+        side_hook(-1);
+    translate([0,16,180])
+        side_hook(1);
+    translate([0,-16,180])
+        side_hook(-1);
+    translate([0,16,210])
+        side_hook(1);
+    translate([0,-16,210])
+        side_hook(-1);
+    translate([0,16,240])
+        side_hook(1);
+    translate([0,-16,240])
+        side_hook(-1);
+    }
+
     
+ module side_hook(side = 1){
+    if(side ==1){
+        rotate([270,360,90])
+            difference(){
+                cube([15,20,10]);
+                cube([10,15,10]);
+            }
+    }
+    if(side == -1){
+        rotate([270,360,270])
+            difference(){
+                cube([15,20,10]);
+                cube([10,15,10]);
+            }
+        }
 }
+        
+
+
+        
+
+        
+
+
+
+
