@@ -1,5 +1,6 @@
 /*製作桌面電線理線器*/
 /*將桌面上的插頭以及電線集中管理*/
+/*正式宣告失敗*/
 module Hole_Donut(h1,r1,thickness,hole_size=0){
     difference(){
         linear_extrude(50)
@@ -26,13 +27,15 @@ module Hole_Donut(h1,r1,thickness,hole_size=0){
             cube(size = hole_size);
         }
 }
+/*兩層圓柱體，電線纏繞於內層/*/
+translate([0,100,0])
+    difference(){
+        Hole_Donut(30,50,35,20);
+        translate([0,0,5])
+            Hole_Donut(30,40,20);
 
-/*difference(){
-    Hole_Donut(30,50,35,20);
-    translate([0,0,5])
-        Hole_Donut(30,40,20);
-
-}*/
+    }
+/*單層很高的圓柱體，電線纏繞於外面*/
 union(){
     linear_extrude(250)
         difference(){
