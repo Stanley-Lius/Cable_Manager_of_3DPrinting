@@ -26,7 +26,7 @@ radius = 70;
 
 
 
-translate([300,0,-5])
+/*translate([300,0,-5])
 rotate([0,0,180])
     difference(){
         union(){
@@ -51,7 +51,14 @@ rotate([0,0,180])
         translate([-radius-30,-10,10])
             cube([40,20,80]);
 
+}*/
+difference(){
+    linear_extrude(5)
+        square([160,radius*2+5],center = true);
+    linear_extrude(5)
+        square([150,50],center = true);
 }
+    
 
 
 
